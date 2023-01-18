@@ -1,0 +1,245 @@
+
+syntax match htmlPreError /<!--#\S*/ms=s+4  contained
+syntax match cssClassNameDot /\./  contained
+syntax match cssPositioningAttr /\<table\(-\(row-group\|\(header\|footer\)-group\|row\|column\(-group\)\=\|cell\|caption\)\)\=\>/  contained
+syntax match cssPositioningAttr /\<list-item\>/  contained
+syntax match cssPositioningAttr /\<inline\(-\(block\|box\|table\|grid\|flex\)\)\=\>/  contained
+syntax match cssPositioningAttr /\<flow\(-root\)\=\>/  contained
+syntax match htmlTagName /\<\(b\|i\|u\|h[1-6]\|em\|strong\|head\|body\|title\)\>/  contained
+syntax match cssFontDescriptorAttr /U+[0-9A-Fa-f?]\+/  contained
+syntax match cssFontDescriptorAttr /U+\x\+-\x\+/  contained
+syntax match cssAnimationAttr /\<alternate-reverse\>/  contained
+syntax match cssPageMarginProp /@\(\(top\|left\|right\|bottom\)-\(left\|center\|right\|middle\|bottom\)\)\(-corner\)\=/  contained nextgroup=cssDefinition
+syntax match javaScriptBraces /[{}\[\]]/  contained
+syntax match cssValueTime /+\=\d\+\(\.\d*\)\=\(ms\|s\)\>/  contained contains=cssUnitDecorators
+syntax match cssMultiColumnProp /\<break-\(after\|before\|inside\)\>/  contained
+syntax match cssMultiColumnProp /\<column-\(count\|fill\|gap\|rule\(-\(color\|style\|width\)\)\=\|span\|width\)\>/  contained
+syntax match cssMultiColumnProp /\<page\(-break-\(before\|after\|inside\)\)\=\>/  contained
+syntax match cssIdentifier /#[A-Za-z√~@-√ø_@][A-Za-z√~@-√ø0-9_@-]*/  contained
+syntax match javaScriptSpecialCharacter /'\\.'/  contained
+syntax match markdownValid +[<>]\c[a-z/$!]\@!+  transparent contains=None
+syntax match markdownValid /&\%(#\=\w*;\)\@!/  transparent contains=None
+syntax match cssCommonAttr /\<\(max-\|min-\|fit-\)content\>/  contained
+syntax match cssHacks /\(_\|*\)/  contained
+syntax match htmlSpecialChar /&#\=[0-9A-Za-z]\{1,8};/
+syntax match cssSelectorOp /[,>+~]/  contained
+syntax match cssTextProp /\<\(\(word\|letter\)-spacing\|text\(-\(decoration\|transform\|align\|index\|shadow\)\)\=\|vertical-align\|unicode-bidi\|line-height\)\>/  contained
+syntax match cssTextProp /\<text-\(justify\|outline\|warp\|align-last\|size-adjust\|rendering\|stroke\|indent\)\>/  contained
+syntax match cssTextProp /\<\(word\|line\)-break\|\(overflow\|word\)-wrap\>/  contained
+syntax match cssTextProp /\<white-space\>/  contained
+syntax match cssTextProp /\<hanging-punctuation\>/  contained
+syntax match cssTextProp /\<tab-size\>/  contained
+syntax match cssTextProp /\<punctuation-trim\>/  contained
+syntax match cssGridProp /\<grid\>/  contained
+syntax match cssGridProp /\<grid-template\(-\(columns\|rows\|areas\)\)\=\>/  contained
+syntax match cssGridProp /\<grid-\(column\|row\)\(-\(start\|end\|gap\)\)\=\>/  contained
+syntax match cssGridProp /\<grid-\(area\|gap\)\>/  contained
+syntax match cssGridProp /\<grid-auto-\(flow\|rows\|columns\)\>/  contained
+syntax match markdownBlockquote />\%(\s\|$\)/  contained nextgroup=@markdownBlock
+syntax match htmlCssStyleComment /\(<!--\|-->\)/  contained
+syntax match cssBoxProp /\<padding\(-\(top\|right\|bottom\|left\)\)\=\>/  contained
+syntax match cssBoxProp /\<margin\(-\(top\|right\|bottom\|left\)\)\=\>/  contained
+syntax match cssBoxProp /\<overflow\(-\(x\|y\|style\)\)\=\>/  contained
+syntax match cssBoxProp /\<rotation\(-point\)\=\>/  contained
+syntax match cssInteractProp /\<pointer-events\>/  contained
+syntax match markdownFootnote /\[^[^\]]\+\]/
+syntax match vbNumber /\<\d\+\>/  contained
+syntax match vbNumber /\<\d\+\.\d*\>/  contained
+syntax match vbNumber /\.\d\+\>/  contained
+syntax match cssIEUIProp /\<interpolation-mode\|zoom\|filter\>/  contained
+syntax match cssFlexibleBoxAttr /\<\(row\|column\|wrap\)\(-reverse\)\=\>/  contained
+syntax match cssFlexibleBoxAttr /\<flex\(-\(start\|end\)\)\=\>/  contained
+syntax match cssFlexibleBoxAttr /\<space\(-\(between\|around\)\)\=\>/  contained
+syntax match cssError /{@<>/  contained
+syntax match cssValueLength /[-+]\=\d\+\(\.\d*\)\=\(mm\|cm\|in\|pt\|pc\|em\|ex\|px\|rem\|dpi\|dppx\|dpcm\|fr\|vw\|vh\|vmin\|vmax\|ch\)\>/  contained contains=cssUnitDecorators
+syntax match cssValueLength /[-+]\=\d\+\(\.\d*\)\=%/  contained contains=cssUnitDecorators
+syntax match cssUIProp /\<box-sizing\>/  contained
+syntax match cssUIProp /\<ime-mode\>/  contained
+syntax match cssUIProp /\<nav-\(down\|index\|left\|right\|up\)\=\>/  contained
+syntax match cssUIProp /\<outline\(-\(width\|style\|color\|offset\)\)\=\>/  contained
+syntax match cssUIProp /\<text-overflow\>/  contained
+syntax match cssUIProp /\<image-rendering\>/  contained
+syntax match cssUIProp /\<tap-highlight-color\|user-select\|touch-callout\>/  contained
+syntax match cssBorderProp /\<border\(-\(top\|right\|bottom\|left\)\)\=\(-\(width\|color\|style\)\)\=\>/  contained
+syntax match cssBorderProp /\<border\(-\(top\|bottom\)-\(left\|right\)\)\=-radius\>/  contained
+syntax match cssBorderProp /\<border-image\(-\(outset\|repeat\|slice\|source\|width\)\)\=\>/  contained
+syntax match cssBorderProp /\<box-decoration-break\>/  contained
+syntax match cssBorderProp /\<box-shadow\>/  contained
+syntax match cssTransitionProp /\<transition\(-\(delay\|duration\|property\|timing-function\)\)\=\>/  contained
+syntax match markdownError /\w\@<=_\w\@=/
+syntax match cssAuralProp /\<\(pause\|cue\)\(-\(before\|after\)\)\=\>/  contained
+syntax match cssAuralProp /\<\(play-during\|speech-rate\|voice-family\|pitch\(-range\)\=\|speak\(-\(punctuation\|numeral\|header\)\)\=\)\>/  contained
+syntax match htmlPreProcAttrError /\w\+=/he=e-1  contained
+syntax match cssIEUIAttr /\<bicubic\>/  contained
+syntax match htmlPreAttr /\w\+=[^"]\S\+/  contained contains=htmlPreProcAttrError,htmlPreProcAttrName
+syntax match cssColorProp /\<color-profile\>/  contained
+syntax match cssColorProp /\<rendering-intent\>/  contained
+syntax match cssMediaProp /\(\(max\|min\)-\)\=\(\(device\)-\)\=aspect-ratio/  contained
+syntax match cssMediaProp /\(\(max\|min\)-\)\=device-pixel-ratio/  contained
+syntax match cssMediaProp /\(\(max\|min\)-\)\=device-\(height\|width\)/  contained
+syntax match cssMediaProp /\(\(max\|min\)-\)\=\(height\|width\|resolution\|monochrome\|color\(-index\)\=\)/  contained
+syntax match markdownHeadingRule /^[=-]\+$/  contained
+syntax match cssBackgroundAttr /\<no-repeat\>/  contained
+syntax match cssBackgroundAttr /\<repeat\(-[xy]\)\=\>/  contained
+syntax match javaScriptNumber /-\=\<\d\+L\=\>\|0[xX][0-9a-fA-F]\+\>/  contained
+syntax match cssUnicodeEscape /\\\x\{1,6}\s\?/  contained
+syntax match cssColor /\<dark\(blue\|cyan\|goldenrod\|gray\|green\|grey\|khaki\)\>/  contained
+syntax match cssColor /\<dark\(magenta\|olivegreen\|orange\|orchid\|red\|salmon\|seagreen\)\>/  contained
+syntax match cssColor /\<darkslate\(blue\|gray\|grey\)\>/  contained
+syntax match cssColor /\<dark\(turquoise\|violet\)\>/  contained
+syntax match cssColor /\<light\(blue\|coral\|cyan\|goldenrodyellow\|gray\|green\)\>/  contained
+syntax match cssColor /\<light\(grey\|pink\|salmon\|seagreen\|skyblue\|yellow\)\>/  contained
+syntax match cssColor /\<light\(slategray\|slategrey\|steelblue\)\>/  contained
+syntax match cssColor /\<medium\(aquamarine\|blue\|orchid\|purple\|seagreen\)\>/  contained
+syntax match cssColor /\<medium\(slateblue\|springgreen\|turquoise\|violetred\)\>/  contained
+syntax match cssColor /\<pale\(goldenrod\|green\|turquoise\|violetred\)\>/  contained
+syntax match cssColor /\<transparent\>/  contained
+syntax match cssColor /\<currentColor\>/  contained
+syntax match cssColor /\<white\>/  contained
+syntax match cssColor /#\x\{3,4\}\>/  contained contains=cssUnitDecorators
+syntax match cssColor /#\x\{6\}\>/  contained contains=cssUnitDecorators
+syntax match cssColor /#\x\{8\}\>/  contained contains=cssUnitDecorators
+syntax match cssFontAttr /\<message-box\>/  contained
+syntax match cssFontAttr /\<status-bar\>/  contained
+syntax match cssFontAttr /\<\(x\{1,2\}-\)\=\(large\|small\)\>/  contained
+syntax match cssFontAttr /\<small-\(caps\|caption\)\>/  contained
+syntax match cssFontAttr /\<\(sans-\)\=serif\>/  contained
+syntax match cssFontAttr /\<\(\(ultra\|extra\|semi\)-\)\=\(condensed\|expanded\)\>/  contained
+syntax match cssFontAttr /\<\(subpixel-\)\=\antialiased\>/  contained
+syntax match cssDimensionProp /\<\(min\|max\)-\(width\|height\)\>/  contained
+syntax match markdownH2 /^.\+\n-\+$/  contained contains=@markdownInline,markdownHeadingRule,markdownAutomaticLink
+syntax match htmlCommentError /[^><!]/  contained
+syntax match cssImportant /!\s*important\>/  contained
+syntax match cssFunctionComma /,/  contained
+syntax match cssListProp /\<list-style\(-\(type\|position\|image\)\)\=\>/  contained
+syntax match cssAtKeyword /@\(font-face\|media\|keyframes\|import\|charset\|namespace\|page\|supports\)/  contained
+syntax match htmlArg /\<\(http-equiv\|href\|title\)=/me=e-1  contained
+syntax match htmlArg /\<\(aria-activedescendant\|aria-atomic\)\>/  contained
+syntax match htmlArg /\<\(aria-autocomplete\|aria-busy\|aria-checked\)\>/  contained
+syntax match htmlArg /\<\(aria-colcount\|aria-colindex\|aria-colspan\)\>/  contained
+syntax match htmlArg /\<\(aria-controls\|aria-current\)\>/  contained
+syntax match htmlArg /\<\(aria-describedby\|aria-details\)\>/  contained
+syntax match htmlArg /\<\(aria-disabled\|aria-dropeffect\)\>/  contained
+syntax match htmlArg /\<\(aria-errormessage\|aria-expanded\)\>/  contained
+syntax match htmlArg /\<\(aria-flowto\|aria-grabbed\|aria-haspopup\)\>/  contained
+syntax match htmlArg /\<\(aria-hidden\|aria-invalid\)\>/  contained
+syntax match htmlArg /\<\(aria-keyshortcuts\|aria-label\)\>/  contained
+syntax match htmlArg /\<\(aria-labelledby\|aria-level\|aria-live\)\>/  contained
+syntax match htmlArg /\<\(aria-modal\|aria-multiline\)\>/  contained
+syntax match htmlArg /\<\(aria-multiselectable\|aria-orientation\)\>/  contained
+syntax match htmlArg /\<\(aria-owns\|aria-placeholder\|aria-posinset\)\>/  contained
+syntax match htmlArg /\<\(aria-pressed\|aria-readonly\|aria-relevant\)\>/  contained
+syntax match htmlArg /\<\(aria-required\|aria-roledescription\)\>/  contained
+syntax match htmlArg /\<\(aria-rowcount\|aria-rowindex\|aria-rowspan\)\>/  contained
+syntax match htmlArg /\<\(aria-selected\|aria-setsize\|aria-sort\)\>/  contained
+syntax match htmlArg /\<\(aria-valuemax\|aria-valuemin\)\>/  contained
+syntax match htmlArg /\<\(aria-valuenow\|aria-valuetext\)\>/  contained
+syntax match htmlArg /\<z-index\>/  contained
+syntax match htmlArg /\<\(accept-charset\|label\)\>/  contained
+syntax match cssBraceError /}/  contained
+syntax match markdownLineBreak / \{2,\}$/
+syntax match cssPagePseudo /:\(left\|right\|first\|blank\)/  contained
+syntax match cssValueFrequency /+\=\d\+\(\.\d*\)\=\(Hz\|kHz\)\>/  contained contains=cssUnitDecorators
+syntax match cssAnimationProp /\<animation\(-\(delay\|direction\|duration\|fill-mode\|name\|play-state\|timing-function\|iteration-count\)\)\=\>/  contained
+syntax match htmlTagError /[^>]</ms=s+1  contained
+syntax match cssFontDescriptorProp /\<unicode-range\>/  contained
+syntax match cssPositioningProp /\<z-index\>/  contained
+syntax match cssSpecialCharQQ /\\\\\|\\"/  contained
+syntax match cssMultiColumnAttr /\<avoid\(-\(page\|column\)\)\=\>/  contained
+syntax match cssBackgroundProp /\<background\(-\(attachment\|clip\|color\|image\|origin\|position\|repeat\|size\)\)\=\>/  contained
+syntax match markdownEscape /\\[][\\`*_{}()<>#+.!-]/
+syntax match cssVendor /-\(webkit\|moz\|o\|ms\)-/  contained
+syntax match cssClassName /\.-\=[A-Za-z_][A-Za-z0-9_-]*/  contained contains=cssClassNameDot
+syntax match cssTextAttr /\<line-through\>/  contained
+syntax match cssTextAttr /\<\(text-\)\=\(top\|bottom\)\>/  contained
+syntax match cssTextAttr /\<pre\(-\(line\|wrap\)\)\=\>/  contained
+syntax match cssTextAttr /\<\(allow\|force\)-end\>/  contained
+syntax match cssTextAttr /\<inter-\(word\|ideographic\|cluster\)\>/  contained
+syntax match cssTextAttr /\<break-all\>/  contained
+syntax match cssTextAttr /\<break-word\>/  contained
+syntax match cssTextAttr /\<bidi-override\>/  contained
+syntax match vbFloat /[-+]\=\<\d\+[eE][\-+]\=\d\+/  contained
+syntax match vbFloat /[-+]\=\<\d\+\.\d*\([eE][\-+]\=\d\+\)\=/  contained
+syntax match vbFloat /[-+]\=\<\.\d\+\([eE][\-+]\=\d\+\)\=/  contained
+syntax match markdownRule /\* *\* *\*[ *]*$/  contained
+syntax match markdownRule /- *- *-[ -]*$/  contained
+syntax match htmlPreStmt /<!--#\(config\|echo\|exec\|fsize\|flastmod\|include\|printenv\|set\|if\|elif\|else\|endif\|geoguide\)\>/  contained
+syntax match cssBoxAttr /\<no-\(display\|content\)\>/  contained
+syntax match cssInteractAttr /\<\(visible\)\=\(Painted\|Fill\|Stroke\)\=\>/  contained
+syntax match htmlTagN /<\s*[-a-zA-Z0-9]\+/hs=s+1  contained contains=htmlTagName,htmlSpecialTagName,@htmlTagNameCluster
+syntax match htmlTagN =</\s*[-a-zA-Z0-9]\+=hs=s+2  contained contains=htmlTagName,htmlSpecialTagName,@htmlTagNameCluster
+syntax match javaScriptSpecial /\\\d\d\d\|\\./  contained
+syntax match cssGeneratedContentProp /\<counter-\(reset\|increment\)\>/  contained
+syntax match cssGeneratedContentProp /\<move-to\>/  contained
+syntax match cssGeneratedContentProp /\<page-policy\>/  contained
+syntax match cssTransformProp /\<transform\(-\(origin\|style\)\)\=\>/  contained
+syntax match cssTransformProp /\<perspective\(-origin\)\=\>/  contained
+syntax match cssTransformProp /\<backface-visibility\>/  contained
+syntax match vbOperator #[()+.,\-/*=&]#  contained
+syntax match vbOperator /[<>]=\=/  contained
+syntax match vbOperator /<>/  contained
+syntax match vbOperator /\s\+_$/  contained
+syntax match cssTagName /\<select\>\|\<style\>\|\<table\>/  contained
+syntax match cssTagName /\*/  contained
+syntax match cssValueAngle /[-+]\=\d\+\(\.\d*\)\=\(deg\|grad\|rad\)\>/  contained contains=cssUnitDecorators
+syntax match cssTableProp /\<\(caption-side\|table-layout\|border-collapse\|border-spacing\|empty-cells\)\>/  contained
+syntax match cssCustomProp /--[a-zA-Z0-9-_]*/  contained
+syntax match markdownH1 /^.\+\n=\+$/  contained contains=@markdownInline,markdownHeadingRule,markdownAutomaticLink
+syntax match cssMobileTextProp /\<text-size-adjust\>/  contained
+syntax match htmlValue /=[\t ]*[^'" \t>][^ \t>]*/hs=s+1  contained contains=javaScriptExpression,@htmlPreproc
+syntax match cssValueNumber /[-+]\=\d\+\(\.\d*\)\=/  contained contains=cssUnitDecorators
+syntax match htmlPreProcAttrName /\(expr\|errmsg\|sizefmt\|timefmt\|var\|cgi\|cmd\|file\|virtual\|value\)=/he=e-1  contained
+syntax match cssPseudoClassId /\<first-\(line\|letter\)\>/  contained
+syntax match cssPseudoClassId /\<\(first\|last\|only\)-\(of-type\|child\)\>/  contained
+syntax match cssPseudoClassId /\<selection\>/  contained
+syntax match cssPseudoClassId /\<focus\(-inner\)\=\>/  contained
+syntax match cssPseudoClassId /\<\(input-\)\=placeholder\>/  contained
+syntax match cssFlexibleBoxProp /\<flex\(-\(direction\|wrap\|flow\|grow\|shrink\|basis\)\)\=\>/  contained
+syntax match cssFlexibleBoxProp /\<\(align\|justify\)\(-\(items\|self\|content\)\)\=\>/  contained
+syntax match cssTransitionAttr /\<linear\(-gradient\)\@!\>/  contained
+syntax match cssTransitionAttr /\<ease\(-\(in-out\|out\|in\)\)\=\>/  contained
+syntax match cssTransitionAttr /\<step\(-start\|-end\)\=\>/  contained
+syntax match vbTypeSpecifier /[a-zA-Z0-9][\$%&!#]/ms=s+1  contained
+syntax match vbTypeSpecifier /#[a-zA-Z0-9]/me=e-1  contained
+syntax match cssNoise +\(:\|;\|\/\)+  contained
+syntax match javaScriptCommentSkip /^[ \t]*\*\($\|[ \t]\+\)/  contained
+syntax match javaScriptLineComment +\/\/.*+  contained contains=@Spell,javaScriptCommentTodo
+syntax match cssSelectorOp2 /[~|^$*]\?=/  contained
+syntax match cssValueInteger /[-+]\=\d\+/  contained contains=cssUnitDecorators
+syntax match cssAuralAttr /\<\(x-\)\=\(soft\|loud\)\>/  contained
+syntax match cssAuralAttr /\<spell-out\>/  contained
+syntax match cssAuralAttr /\<\(left\|right\)-side\>/  contained
+syntax match cssAuralAttr /\<\(far\|center\)-\(left\|center\|right\)\>/  contained
+syntax match cssAuralAttr /\<\(x-\)\=\(slow\|fast\|low\|high\)\>/  contained
+syntax match cssAttrComma /,/  contained
+syntax match markdownLineStart /^[<@]\@!/  nextgroup=@markdownBlock,htmlSpecialChar
+syntax match cssSpecialCharQ /\\\\\|\\'/  contained
+syntax match vbLineNumber /^\d\+\(\s\|$\)/  contained
+syntax match markdownUrl /\S\+/  contained nextgroup=markdownUrlTitle skipwhite
+syntax match markdownFootnoteDefinition /^\[^[^\]]\+\]:/
+syntax match cssGeneratedContentAttr /\<\(no-\)\=\(open\|close\)-quote\>/  contained
+syntax match cssUnitDecorators /\(#\|-\|+\|%\|mm\|cm\|in\|pt\|pc\|em\|ex\|px\|ch\|rem\|vh\|vw\|vmin\|vmax\|dpi\|dppx\|dpcm\|Hz\|kHz\|s\|ms\|deg\|grad\|rad\)/  contained
+syntax match htmlLeadingSpace /^\s\+/  contained
+syntax match javaScriptParens /[()]/  contained
+syntax match markdownOrderedListMarker /\%(\t\| \{0,4}\)\<\d\+\.\%(\s\+\S\)\@=/  contained
+syntax match cssPseudoClass /:[A-Za-z0-9_-]*/  contained contains=cssNoise,cssPseudoClassId,cssUnicodeEscape,cssVendor,cssPseudoClassFn
+syntax match cssHyerlinkProp /\<target\(-\(name\|new\|position\)\)\=\>/  contained
+syntax match cssKeyFrameProp /\(\d\+\(\.\d\+\)\?%\|\(\<from\|to\>\)\)/  contained nextgroup=cssDefinition
+syntax match cssListAttr /\<\(lower\|upper\)-\(roman\|alpha\|greek\|latin\)\>/  contained
+syntax match cssListAttr /\<\(hiragana\|katakana\)\(-iroha\)\=\>/  contained
+syntax match cssListAttr /\<\(decimal\(-leading-zero\)\=\|cjk-ideographic\)\>/  contained
+syntax match markdownListMarker /\%(\t\| \{0,4\}\)[-*+]\%(\s\+\S\)\@=/  contained
+syntax match cssFontProp /\<font\(-\(family\|\|feature-settings\|kerning\|language-override\|size\(-adjust\)\=\|stretch\|style\|synthesis\|variant\(-\(alternates\|caps\|east-asian\|ligatures\|numeric\|position\)\)\=\|weight\)\)\=\>/  contained
+syntax match cssFontProp /\<font-smooth\>/  contained
+syntax match htmlError /[<>&]/
+syntax match cssUIAttr /\<\(content\|padding\|border\)\(-box\)\=\>/  contained
+syntax match cssUIAttr /\<\(\([ns]\=[ew]\=\)\|col\|row\|nesw\|nwse\)-resize\>/  contained
+syntax match cssUIAttr /\<context-menu\>/  contained
+syntax match cssUIAttr /\<no-drop\>/  contained
+syntax match cssUIAttr /\<not-allowed\>/  contained
+syntax match cssUIAttr /\<all-scroll\>/  contained
+syntax match cssUIAttr /\<\(vertical-\)\=text\>/  contained
+syntax match cssUIAttr /\<zoom\(-in\|-out\)\=\>/  contained
+syntax match cssUIAttr /\<crisp-edges\>/  contained
+syntax match cssUIAttr /\<preserve-3d\>/  contained
+syntax match cssBraces /[{}]/  contained
