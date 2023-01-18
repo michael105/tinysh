@@ -2,7 +2,8 @@
 
 This is a port of a deobfuscated version of tinysh to minilib.
 Compiles to 2.4 kB, statically linked. 
-The shell has pipes, redirection, and no features.
+The shell has pipes, redirection, and no features;
+it's barely usable. (Missing signal handler)
 
 I added a inline command table (exit, help, cd).
 Some colors, and a prompt with the current path.
