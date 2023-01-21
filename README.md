@@ -2,7 +2,8 @@
 
 This is a port of a deobfuscated version of tinysh to minilib.
 Compiles to 2.4 kB, statically linked. 
-The shell has pipes, redirection, and no features.
+The shell has pipes, redirection, and no features;
+it's barely usable. (Missing signal handler)
 
 I added a inline command table (exit, help, cd).
 Some colors, and a prompt with the current path.
@@ -15,8 +16,7 @@ Serge Zaitsev did the deobfuscation. https://github.com/zserge/tinysh
 Here is the original C source code, submission of Sean Dorward to the IOCCCC in 1990:
 
 ---
-<pre style="color:white; background:blue">
-
+```C
 #define D ,close(
 
 char              *c,q              [512              ],m[              256
@@ -39,8 +39,7 @@ char              *c,q              [512              ],m[              256
 	5	,e(execvp(*u,u))):e(chdir(u[1])*2):
 	3	;}e(x){x<0?write(2,"?\n$ "-x/4,2),x+1||exit(1):
 	5	;}
-
-</pre>
+```
 ---
 
 I do like the wave. Like water. So calming. =:)
